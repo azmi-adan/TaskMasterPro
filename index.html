@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Task Manager</h1>
+            <button id="clearAll">Clear All</button>
+        </header>
+
+        <div class="task-input">
+            <input type="text" id="taskTitle" placeholder="Task Title">
+            <textarea id="taskDescription" placeholder="Task Description"></textarea>
+            <input type="date" id="taskDeadline">
+            <select id="taskPriority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <button id="addTask">Add</button>
+        </div>
+
+        <div class="task-list" id="taskList"></div>
+
+        <!-- Task Calendar Section -->
+        <div class="calendar-container">
+            <h2>Upcoming Deadlines</h2>
+            <div id="calendar"></div>
+        </div>
+
+        <!-- Circular Progress Indicator -->
+        <div class="progress-container">
+            <svg width="60" height="60">
+                <circle cx="30" cy="30" r="25" stroke="rgba(255, 255, 255, 0.3)" stroke-width="8" fill="none"></circle>
+                <circle id="progress-circle" cx="30" cy="30" r="25" stroke="#ff9800" stroke-width="8" fill="none" stroke-dasharray="0 157"></circle>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
