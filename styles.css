@@ -119,12 +119,12 @@ button:hover {
   padding: 5px 8px;
   border-radius: 5px;
   margin-top: 10px;
-  color: white;
+  color: white; /* Ensure text is white for better contrast */
 }
 
-.priority.high { background: #ff4444; }
-.priority.medium { background: #ffbb33; }
-.priority.low { background: #00C851; }
+.priority.high { background: #ff4444; } /* Brighter red */
+.priority.medium { background: #ffbb33; } /* Brighter orange */
+.priority.low { background: #00C851; } /* Brighter green */
 
 /* Circular Progress */
 .progress-container {
@@ -157,16 +157,7 @@ button:hover {
   text-align: center;
 }
 
-/* Deadline Section */
-.deadline-container {
-  margin-top: 20px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  text-align: center;
-}
-
-.deadline-task {
+.calendar-task {
   margin: 5px 0;
   font-size: 14px;
 }
@@ -190,15 +181,15 @@ button:hover {
   }
 
   .priority {
-    font-size: 14px;
+    font-size: 14px; /* Smaller font size for smaller screens */
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 24px; /* Smaller header font size */
   }
 
   input, textarea, select, button {
-    font-size: 14px;
+    font-size: 14px; /* Smaller font size for inputs */
   }
 }
 
@@ -208,14 +199,14 @@ button:hover {
   }
 
   .priority {
-    font-size: 12px;
+    font-size: 12px; /* Even smaller font size for very small screens */
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 20px; /* Smaller header font size */
   }
 
   input, textarea, select, button {
-    font-size: 12px;
+    font-size: 12px; /* Smaller font size for inputs */
   }
 }
