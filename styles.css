@@ -119,11 +119,12 @@ button:hover {
   padding: 5px 8px;
   border-radius: 5px;
   margin-top: 10px;
+  color: white; /* Ensure text is white for better contrast */
 }
 
-.priority.high { background: red; }
-.priority.medium { background: orange; }
-.priority.low { background: green; }
+.priority.high { background: #ff4444; } /* Brighter red */
+.priority.medium { background: #ffbb33; } /* Brighter orange */
+.priority.low { background: #00C851; } /* Brighter green */
 
 /* Circular Progress */
 .progress-container {
@@ -173,5 +174,39 @@ button:hover {
 
   .progress-container {
     top: 10px;
+  }
+
+  .task {
+    padding: 10px;
+  }
+
+  .priority {
+    font-size: 14px; /* Smaller font size for smaller screens */
+  }
+
+  h1 {
+    font-size: 24px; /* Smaller header font size */
+  }
+
+  input, textarea, select, button {
+    font-size: 14px; /* Smaller font size for inputs */
+  }
+}
+
+@media (max-width: 480px) {
+  .task {
+    padding: 8px;
+  }
+
+  .priority {
+    font-size: 12px; /* Even smaller font size for very small screens */
+  }
+
+  h1 {
+    font-size: 20px; /* Smaller header font size */
+  }
+
+  input, textarea, select, button {
+    font-size: 12px; /* Smaller font size for inputs */
   }
 }
