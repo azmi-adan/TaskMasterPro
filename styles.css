@@ -5,6 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+.deadline-container {
+  margin-top: 50px; /* Adjust this value as needed */
+  padding-top: 20px;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
