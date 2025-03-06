@@ -129,37 +129,3 @@ button:hover {
   margin: 5px 0;
   font-size: 14px;
 }
-
-/* Footer Styles */
-footer {
-  margin-top: auto;
-  text-align: center;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-footer p {
-  margin: 5px 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-    height: 95vh;
-  }
-
-  .task {
-    width: 100%;
-  }
-
-  .task-input {
-    flex-direction: column;
-  }
-
-  input, textarea, select, button {
-    width: 100%;
-  }
-}
