@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultimate Task Manager</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -14,9 +16,11 @@
             <button id="clearAll">Clear All</button>
         </header>
 
+        <!-- Task Input Section -->
         <div class="task-input">
             <input type="text" id="taskTitle" placeholder="Task Title">
             <textarea id="taskDescription" placeholder="Task Description"></textarea>
+            <input type="date" id="taskDeadline">
             <select id="taskPriority">
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -25,18 +29,28 @@
             <button id="addTask">Add Task</button>
         </div>
 
-        <div class="task-list" id="taskList"></div>
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <!-- Task List Section -->
+            <div class="task-list-container">
+                <h2>Your Tasks</h2>
+                <div class="task-list" id="taskList"></div>
+            </div>
 
-        <!-- Task Deadlines Section -->
-        <div class="deadline-container">
-            <h2>Deadlines</h2>
-            <div id="deadlineList"></div>
-        </div>
+            <!-- Sidebar Section -->
+            <div class="sidebar">
+                <!-- Deadlines Section -->
+                <div class="deadline-container">
+                    <h2>Upcoming Deadlines</h2>
+                    <div class="deadline-list" id="deadlineList"></div>
+                </div>
 
-        <!-- Task Calendar Section -->
-        <div class="calendar-container">
-            <h2>Upcoming Deadlines</h2>
-            <div id="calendar"></div>
+                <!-- Calendar Section -->
+                <div class="calendar-container">
+                    <h2>Task Calendar</h2>
+                    <div id="calendar"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Circular Progress Indicator -->
