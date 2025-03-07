@@ -10,6 +10,18 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-brand">Task Manager</div>
+        <button class="navbar-toggler" id="navbarToggler">
+            <span class="toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav" id="navbarNav">
+            <li class="nav-item"><a href="#task-list" class="nav-link">Tasks</a></li>
+            <li class="nav-item"><a href="#calendar" class="nav-link">Calendar</a></li>
+            <li class="nav-item"><a href="#deadlines" class="nav-link">Deadlines</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <header>
             <h1>Task Manager</h1>
@@ -32,7 +44,7 @@
         <!-- Main Content Section -->
         <div class="main-content">
             <!-- Task List Section -->
-            <div class="task-list-container">
+            <div class="task-list-container" id="task-list">
                 <h2>Your Tasks</h2>
                 <div class="task-list" id="taskList"></div>
             </div>
@@ -40,13 +52,13 @@
             <!-- Sidebar Section -->
             <div class="sidebar">
                 <!-- Deadlines Section -->
-                <div class="deadline-container">
+                <div class="deadline-container" id="deadlines">
                     <h2>Upcoming Deadlines</h2>
                     <div class="deadline-list" id="deadlineList"></div>
                 </div>
 
                 <!-- Calendar Section -->
-                <div class="calendar-container">
+                <div class="calendar-container" id="calendar">
                     <h2>Task Calendar</h2>
                     <div id="calendar"></div>
                 </div>

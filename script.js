@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressText = document.getElementById("progress-text");
     const calendarEl = document.getElementById("calendar");
     const deadlineList = document.getElementById("deadlineList");
+    const navbarToggler = document.getElementById("navbarToggler");
+    const navbarNav = document.getElementById("navbarNav");
 
     let storedTasks = localStorage.getItem("tasks");
     let tasks = [];
@@ -29,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTasks();
     renderCalendar();
     renderDeadlines();
+
+    navbarToggler.addEventListener("click", () => {
+        navbarNav.classList.toggle("active");
+    });
 
     function updateProgress() {
         const totalTasks = tasks.length;
