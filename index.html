@@ -6,10 +6,24 @@
     <title>Ultimate Task Manager</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <!-- Icon (e.g., checkmark) -->
+            <i class="fas fa-tasks splash-icon"></i>
+            <!-- Logo -->
+            <!-- <img src="logo.png" alt="Task Manager Pro Logo" class="splash-logo"> -->
+            <!-- Moto -->
+            <p class="splash-motto">"Organize Your Life, One Task at a Time"</p>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="navbar-brand">Task Manager</div>
         <button class="navbar-toggler" id="navbarToggler">

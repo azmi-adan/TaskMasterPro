@@ -184,4 +184,16 @@ document.addEventListener("DOMContentLoaded", () => {
             taskPriority.value = "Medium";
         };
     }
+    const splashScreen = document.getElementById("splash-screen");
+
+    // Hide the splash screen after 3 seconds
+    setTimeout(() => {
+        splashScreen.classList.add("fade-out");
+
+        // Remove the splash screen from the DOM after the fade-out animation
+        setTimeout(() => {
+            splashScreen.remove();
+        }, 1000); // Match the duration of the fade-out transition
+    }, 3000); // 3 seconds delay
+
 });
