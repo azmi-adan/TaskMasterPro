@@ -13,20 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbarToggler = document.getElementById("navbarToggler");
     const navbarNav = document.getElementById("navbarNav");
 
-    let storedTasks = localStorage.getItem("tasks");
-    let tasks = [];
-
-    if (storedTasks) {
-        try {
-            tasks = JSON.parse(storedTasks);
-            if (!Array.isArray(tasks)) {
-                tasks = [];
-            }
-        } catch (error) {
-            console.error("Error parsing tasks from localStorage:", error);
-            tasks = [];
-        }
-    }
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
     loadTasks();
     renderCalendar();
@@ -136,10 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCalendar();
         renderDeadlines();
 
-        taskTitle.value = "";
-        taskDescription.value = "";
-        taskDeadline.value = "";
-        taskPriority.value = "Medium";
+        resetForm();
     });
 
     clearAllButton.addEventListener("click", () => {
@@ -154,14 +138,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function editTask(index) {
         const task = tasks[index];
-
+        
         taskTitle.value = task.title;
         taskDescription.value = task.description;
         taskDeadline.value = task.deadline;
         taskPriority.value = task.priority;
-
         addTaskButton.textContent = "Update Task";
-        addTaskButton.onclick = function () {
+
+        // Remove existing event listeners
+        const newAddTaskButton = addTaskButton.cloneNode(true);
+        addTaskButton.parentNode.replaceChild(newAddTaskButton, addTaskButton);
+        
+        newAddTaskButton.addEventListener("click", function updateTask() {
             tasks[index] = {
                 title: taskTitle.value.trim(),
                 description: taskDescription.value.trim(),
@@ -175,25 +163,24 @@ document.addEventListener("DOMContentLoaded", () => {
             renderCalendar();
             renderDeadlines();
 
-            addTaskButton.textContent = "Add Task";
-            addTaskButton.onclick = addTaskButton.click;
-
-            taskTitle.value = "";
-            taskDescription.value = "";
-            taskDeadline.value = "";
-            taskPriority.value = "Medium";
-        };
+            resetForm();
+        });
     }
-    const splashScreen = document.getElementById("splash-screen");
 
-    // Hide the splash screen after 3 seconds
+    function resetForm() {
+        taskTitle.value = "";
+        taskDescription.value = "";
+        taskDeadline.value = "";
+        taskPriority.value = "Medium";
+        addTaskButton.textContent = "Add Task";
+    }
+
+    // Splash screen handling
+    const splashScreen = document.getElementById("splash-screen");
     setTimeout(() => {
         splashScreen.classList.add("fade-out");
-
-        // Remove the splash screen from the DOM after the fade-out animation
         setTimeout(() => {
             splashScreen.remove();
-        }, 1000); // Match the duration of the fade-out transition
-    }, 3000); // 3 seconds delay
-
+        }, 1000);
+    }, 4000);
 });
