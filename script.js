@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const taskTitle = document.getElementById("taskTitle");
     const taskDescription = document.getElementById("taskDescription");
@@ -322,7 +323,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Notification Functions
     function requestNotificationPermission() {
-        if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+        if (!("Notification" in window)) {
+            console.log("This browser does not support notifications.");
+            return;
+        }
+
+        if (Notification.permission === "granted") {
+            console.log("Notification permission already granted.");
+        } else if (Notification.permission !== "denied") {
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
                     console.log("Notification permission granted!");
@@ -330,17 +338,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log("Notification permission denied.");
                 }
             });
+        } else {
+            console.log("Notification permission denied by user.");
         }
     }
 
     function showNotification(title, message) {
+        if (!("Notification" in window)) {
+            alert("Notifications are not supported in this browser.");
+            return;
+        }
+
         if (Notification.permission === "granted") {
             new Notification(title, {
                 body: message,
                 icon: "https://cdn-icons-png.flaticon.com/512/1827/1827504.png"
             });
+        } else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    new Notification(title, {
+                        body: message,
+                        icon: "https://cdn-icons-png.flaticon.com/512/1827/1827504.png"
+                    });
+                } else {
+                    alert("Notifications are blocked. Please enable them in your browser settings.");
+                }
+            });
         } else {
-            console.log("Notification permission not granted.");
             alert("Notifications are blocked. Please enable them in your browser settings.");
         }
     }
@@ -361,36 +386,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Array of icon classes (FontAwesome icons)
-const icons = [
-    "fa-rocket", "fa-lightbulb", "fa-star", "fa-heart", "fa-globe",
-    "fa-cloud", "fa-bolt", "fa-feather", "fa-leaf", "fa-moon",
-    "fa-sun", "fa-paper-plane", "fa-gem", "fa-atom", "fa-infinity"
-];
+    const icons = [
+        "fa-rocket", "fa-lightbulb", "fa-star", "fa-heart", "fa-globe",
+        "fa-cloud", "fa-bolt", "fa-feather", "fa-leaf", "fa-moon",
+        "fa-sun", "fa-paper-plane", "fa-gem", "fa-atom", "fa-infinity"
+    ];
 
-// Get the background-icons container
-const backgroundIcons = document.querySelector('.background-icons');
+    // Get the background-icons container
+    const backgroundIcons = document.querySelector('.background-icons');
 
-// Function to generate icons
-function generateIcons() {
-    // Calculate the number of icons needed to fill the screen
-    const iconSize = 50; // Approximate size of each icon
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-    const iconsPerRow = Math.ceil(screenWidth / iconSize);
-    const iconsPerColumn = Math.ceil(screenHeight / iconSize);
-    const totalIcons = iconsPerRow * iconsPerColumn;
+    // Function to generate icons
+    function generateIcons() {
+        // Calculate the number of icons needed to fill the screen
+        const iconSize = 50; // Approximate size of each icon
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const iconsPerRow = Math.ceil(screenWidth / iconSize);
+        const iconsPerColumn = Math.ceil(screenHeight / iconSize);
+        const totalIcons = iconsPerRow * iconsPerColumn;
 
-    // Create and append icons
-    for (let i = 0; i < totalIcons; i++) {
-        const icon = document.createElement('i');
-        icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]}`;
-        backgroundIcons.appendChild(icon);
+        // Create and append icons
+        for (let i = 0; i < totalIcons; i++) {
+            const icon = document.createElement('i');
+            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]}`;
+            backgroundIcons.appendChild(icon);
+        }
     }
-}
 
-// Generate icons on page load
-generateIcons();
+    // Generate icons on page load
+    generateIcons();
 
-// Regenerate icons on window resize (optional)
-window.addEventListener('resize', generateIcons);
+    // Regenerate icons on window resize (optional)
+    window.addEventListener('resize', generateIcons);
 });
