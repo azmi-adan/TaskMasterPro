@@ -23,6 +23,12 @@ Many individuals struggle with task management, leading to missed deadlines, str
 - **Clear All Tasks**: Easily remove all tasks from the list with a single click.
 - **Categorization**: Tasks are organized under categories such as High, Medium, and Low priority.
 - **Upcoming Deadlines**: A dedicated section to display tasks with approaching deadlines.
+- **Edit Tasks**: Users can modify task descriptions and priority levels as needed.
+- **Delete Tasks**: Remove individual tasks from the list.
+- **Search tasks**: users can serch up the tasks
+- **navbar** - users can navigate easily throughtout the page
+- **Responsive Design**: TaskMasterPro is optimized for use on various devices, including desktops,
+laptops, tablets, and smartphones.
 
 ---
 
@@ -82,7 +88,7 @@ Many individuals struggle with task management, leading to missed deadlines, str
 - **Color Coding**: Used colors to differentiate between priority levels (e.g., red for High, yellow for Medium, green for Low).
 
 ### Visual Aids
-![TaskMasterPro Screenshot](images/screenshot.png)
+![TaskMasterPro Screenshot](assets/largescreenview1.png)
 
 ---
 
@@ -158,22 +164,4 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for d
 
 ---
 
-## Next Steps
 
-1. **Add Screenshots**:
-   - Take a screenshot of your application (e.g., the main interface or task list).
-   - Save it in an `images/` folder in your repository.
-   - Update the `![TaskMasterPro Screenshot](images/screenshot.png)` line in the README with the correct file path.
-
-2. **Submit Your Project**:
-   - Go to the submission page (as shown in your screenshot).
-   - Drag and drop your **README.md** and any other required files (e.g., screenshots, code files).
-   - Ensure the total file size does not exceed 10 MB.
-
-3. **Double-Check**:
-   - Verify that all links (e.g., live demo, repository) are working.
-   - Ensure your repository is public (if required).
-
----
-
-Let me know if you need further assistance! 🚀
