@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
         splashScreen.classList.add("fade-out");
         setTimeout(() => {
             splashScreen.remove();
-        }, 1000);
+        }, 3000);
     }, 4000);
 
     // Notification Functions
@@ -359,4 +359,37 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    // Array of icon classes (FontAwesome icons)
+const icons = [
+    "fa-rocket", "fa-lightbulb", "fa-star", "fa-heart", "fa-globe",
+    "fa-cloud", "fa-bolt", "fa-feather", "fa-leaf", "fa-moon",
+    "fa-sun", "fa-paper-plane", "fa-gem", "fa-atom", "fa-infinity"
+];
+
+// Get the background-icons container
+const backgroundIcons = document.querySelector('.background-icons');
+
+// Function to generate icons
+function generateIcons() {
+    // Calculate the number of icons needed to fill the screen
+    const iconSize = 50; // Approximate size of each icon
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const iconsPerRow = Math.ceil(screenWidth / iconSize);
+    const iconsPerColumn = Math.ceil(screenHeight / iconSize);
+    const totalIcons = iconsPerRow * iconsPerColumn;
+
+    // Create and append icons
+    for (let i = 0; i < totalIcons; i++) {
+        const icon = document.createElement('i');
+        icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]}`;
+        backgroundIcons.appendChild(icon);
+    }
+}
+
+// Generate icons on page load
+generateIcons();
+
+// Regenerate icons on window resize (optional)
+window.addEventListener('resize', generateIcons);
 });
