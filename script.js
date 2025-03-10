@@ -351,14 +351,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const deadline = new Date(task.deadline);
             const timeDiff = deadline - now;
             const minutesDiff = timeDiff / (1000 * 60); // Convert milliseconds to minutes
-
-            // Show notification if the deadline is within 5 minutes and the task is not completed
-            if (minutesDiff <= 5 && minutesDiff > 0 && !task.completed) {
-                console.log(`Task "${task.title}" is due within 5 minutes.`);
-                showNotification(`Task Due: ${task.title}`, `Deadline: ${task.deadline}`);
+    
+            // Show notification if the deadline is within 24 hours (1440 minutes) and the task is not completed
+            if (minutesDiff <= 1440 && minutesDiff > 0 && !task.completed) {
+                console.log(`Task "${task.title}" is due within 24 hours.`);
+                showNotification(`Upcoming Task: ${task.title}`, `Deadline: ${task.deadline}`);
             }
         });
     }
+    
     // Array of icon classes (FontAwesome icons)
 const icons = [
     "fa-rocket", "fa-lightbulb", "fa-star", "fa-heart", "fa-globe",
